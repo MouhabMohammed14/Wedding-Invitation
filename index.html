@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Invitation - Mouhab & Maryam</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cursive', 'Arial', sans-serif;
+      background-color: #f9f9f9;
+      text-align: center;
+      color: #2f2f2f;
+    }
+    .image-header {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      display: block;
+    }
+    .countdown {
+      font-size: 1.8em;
+      font-weight: bold;
+      margin: 30px 0;
+      color: #333;
+    }
+    h3 {
+      font-family: 'Georgia', serif;
+      margin-top: 40px;
+      font-size: 1.4em;
+      color: #4c4c4c;
+    }
+    iframe {
+      width: 90%;
+      max-width: 600px;
+      border: 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-top: 10px;
+    }
+    .map-button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 24px;
+      background-color: #d4af37;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s;
+    }
+    .map-button:hover {
+      background-color: #b9982f;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Image -->
+  <img src="wedding-image.jpg" alt="Wedding Invite" class="image-header">
+
+  <!-- Countdown Timer -->
+  <div class="countdown" id="countdown"></div>
+
+  <!-- Location Map -->
+  <h3>Location</h3>
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.205709214042!2d31.330165599999998!3d30.025368599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583c2c9b5d3623%3A0x36d4568ad5742aa2!2z2KfZhNiq2KfZhdiuINin2YTYt9in2YTZhdiMINmF2K3Yp9mB2YrYqQ!5e0!3m2!1sen!2seg!4v1718192600000!5m2!1sen!2seg"
+    width="600"
+    height="300"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+  <br>
+  <a class="map-button" href="https://maps.app.goo.gl/8HfG25xiA7YBqwk77" target="_blank">Open in Google Maps</a>
+
+  <!-- RSVP Form -->
+  <h3>Confirm Attendance</h3>
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeOK6rGe7hZ74WpV5TNCtJFidPM4MQQ-4D-CVN1METGxcxH5A/viewform?embedded=true" width="640" height="622" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+  <script>
+    const countdown = () => {
+      const targetDate = new Date("2025-06-27T20:00:00").getTime();
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML = `${days} Day : ${hours} Hr : ${minutes} Min : ${seconds} Sec`;
+    }
+
+    setInterval(countdown, 1000);
+  </script>
+</body>
+</html>
