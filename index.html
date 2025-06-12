@@ -3,99 +3,108 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wedding Invitation - Mouhab & Maryam</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mouhab & Maryam Wedding</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Cursive', 'Arial', sans-serif;
-      background-color: #f9f9f9;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fffaf3;
+      color: #2f2f2f;
       text-align: center;
-      color: #f1f1f1;
     }
-    .image-header {
+    .main-image {
       width: 100%;
       max-width: 600px;
-      margin: 0 auto;
       display: block;
+      margin: 0 auto;
     }
     .countdown {
-      font-size: 1.8em;
+      font-size: 22px;
       font-weight: bold;
-      margin: 30px 0;
+      margin: 24px auto;
       color: #333;
     }
     h3 {
-      font-family: 'Georgia', serif;
+      font-size: 18px;
       margin-top: 40px;
-      font-size: 1.4em;
-      color: #4c4c4c;
     }
     iframe {
-      width: 90%;
-      max-width: 600px;
       border: 0;
+      width: 90%;
+      max-width: 640px;
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      margin-top: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     .map-button {
       display: inline-block;
       margin-top: 15px;
-      padding: 12px 24px;
-      background-color: #d4af37;
-      color: white;
+      padding: 12px 30px;
+      background-color: #b99d75;
+      color: #fff;
       text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-      transition: background-color 0.3s;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: background-color 0.3s ease;
     }
     .map-button:hover {
-      background-color: #b9982f;
+      background-color: #a98960;
     }
   </style>
 </head>
 <body>
 
-  <!-- Header Image -->
-  <img src="wedding-image.jpg" alt="Wedding Invite" class="image-header">
+  <!-- Main Invitation Image -->
+  <img src="wedding-image.jpg" alt="Wedding Invitation" class="main-image">
 
   <!-- Countdown Timer -->
-  <div class="countdown" id="countdown"></div>
+  <div class="countdown" id="countdown">Loading countdown...</div>
 
-  <!-- Location Map -->
+  <!-- Location Title -->
   <h3>Location</h3>
+
+  <!-- Google Maps Embed -->
   <iframe
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.205709214042!2d31.330165599999998!3d30.025368599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583c2c9b5d3623%3A0x36d4568ad5742aa2!2z2KfZhNiq2KfZhdiuINin2YTYt9in2YTZhdiMINmF2K3Yp9mB2YrYqQ!5e0!3m2!1sen!2seg!4v1718192600000!5m2!1sen!2seg"
-    width="600"
-    height="300"
+    width="640"
+    height="320"
     allowfullscreen=""
     loading="lazy"
     referrerpolicy="no-referrer-when-downgrade"></iframe>
 
+  <!-- Open in Maps Button -->
   <br>
-  <a class="map-button" href="https://maps.app.goo.gl/8HfG25xiA7YBqwk77" target="_blank">Open in Google Maps</a>
+  <a class="map-button" href="https://maps.app.goo.gl/8HfG25xiA7YBqwk77" target="_blank">افتح الخريطة في جوجل مابس</a>
 
-  <!-- RSVP Form -->
+  <!-- RSVP Title -->
   <h3>Confirm Attendance</h3>
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeOK6rGe7hZ74WpV5TNCtJFidPM4MQQ-4D-CVN1METGxcxH5A/viewform?embedded=true" width="640" height="622" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+  <!-- Google Form Embed -->
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeOK6rGe7hZ74WpV5TNCtJFidPM4MQQ-4D-CVN1METGxcxH5A/viewform?embedded=true" width="640" height="640" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
   <script>
-    const countdown = () => {
-      const targetDate = new Date("2025-06-27T20:00:00").getTime();
+    function updateCountdown() {
+      const eventDate = new Date("2025-06-27T20:00:00").getTime();
       const now = new Date().getTime();
-      const distance = targetDate - now;
+      const diff = eventDate - now;
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-      document.getElementById("countdown").innerHTML = `${days} Day : ${hours} Hr : ${minutes} Min : ${seconds} Sec`;
+      const display = document.getElementById("countdown");
+      if (diff > 0) {
+        display.innerHTML = `${days} يوم : ${hours} ساعة : ${minutes} دقيقة : ${seconds} ثانية`;
+      } else {
+        display.innerHTML = "الحدث بدأ!";
+      }
     }
 
-    setInterval(countdown, 1000);
+    setInterval(updateCountdown, 1000);
   </script>
+
 </body>
 </html>
